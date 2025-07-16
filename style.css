@@ -1,4 +1,4 @@
-
+/* Reset & Base Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,12 +6,41 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
   background-color: #0e0e0e;
   color: #f4f4f4;
   line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+/* Dark/Light Theme Support */
+body.light-theme {
+  background-color: #f4f4f4;
+  color: #0e0e0e;
+}
+
+body.light-theme .navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+
+body.light-theme .project-card {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .resume-btn,
+body.light-theme button {
+  background: #2f6feb;
+  color: white;
+}
+
+body.light-theme footer {
+  background: #ffffff;
+  color: #444;
+}
+
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -39,21 +68,22 @@ body {
   color: #00c6ff;
 }
 
-h1, h2 {
-  margin: 20px 0;
-}
-
+/* Header */
 header {
   text-align: center;
   padding: 40px 20px;
 }
 
-.highlight {
+/* Gradient Heading */
+.highlight,
+.gradient-text {
   background: linear-gradient(90deg, #00c6ff, #0072ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: bold;
 }
 
+/* Section Animation */
 section {
   max-width: 800px;
   margin: 40px auto;
@@ -68,6 +98,7 @@ section.visible {
   transform: translateY(0);
 }
 
+/* Skill Icons */
 .skill-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -85,7 +116,9 @@ section.visible {
   transform: scale(1.2);
 }
 
-.resume-btn, button {
+/* Buttons */
+.resume-btn,
+button {
   background: #00c6ff;
   color: #000;
   padding: 10px 20px;
@@ -96,24 +129,28 @@ section.visible {
   transition: 0.3s ease;
 }
 
-.resume-btn:hover, button:hover {
+.resume-btn:hover,
+button:hover {
   background: #0072ff;
   color: #fff;
 }
 
+/* Contact Form */
 .contact-form form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
   padding: 10px;
   border: 1px solid #555;
   background: #111;
   color: #f4f4f4;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 20px;
@@ -123,10 +160,49 @@ footer {
   color: #bbb;
 }
 
+/* Scroll Animation */
 .fade-in {
   animation: fadeIn 2s ease-in forwards;
 }
 
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
+
+/* 💠 Project Card - Glassmorphism */
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* 📦 Project Grid Layout */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* 🏷️ Tech Stack Tags */
+.tag {
+  display: inline-block;
+  padding: 5px 12px;
+  margin: 5px 5px 0 0;
+  background-color: #00c6ff;
+  color: black;
+  font-size: 0.75rem;
+  border-radius: 999px;
+}
+
